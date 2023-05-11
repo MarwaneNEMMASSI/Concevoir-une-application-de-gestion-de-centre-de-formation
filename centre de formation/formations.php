@@ -185,10 +185,13 @@ else{
         
                 <option value="" name = "allCategories" >All Categories</option>
         
-                <option value="informatique" name = "informatique" >Informatique</option>
-                <option value="gaming developement" name = "gaming">Gaming Developement</option>
-                <option value="developement" name = "">Developement</option>
-                
+                <option value="Cybersecurity" name = "Cybersecurity" >Cybersecurity</option>
+                <option value="Front-End" name = "Front-End">Front-End</option>
+                <option value="Back-end" name = "">Back-end</option>
+                <option value="Data Analytics" name = "">Data Analytics</option>
+                <option value="Database engineering" name = "">Database engineering</option>
+
+
             </select>
             
         

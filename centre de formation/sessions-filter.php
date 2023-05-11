@@ -245,7 +245,7 @@ if($row['date_fin'] == $currentDate){
 else{
 
     echo'<div class="alert alert-danger latestsProductsdiv row" role="alert">
-    <h1 class ="text-center">There is no Session in this Formation :(</h1>
+    <h1 class ="text-center">There is no sessions available for this course :(</h1>
     </div>';
 }
 
