@@ -271,7 +271,7 @@ $currentDate = date('Y-m-d');
         ON f.id_formation = s.id_formation
         INNER JOIN formateur ff ON ff.id_formateur = s.id_formateur
         WHERE s.id_formation = $id_formation 
-        AND s.etat = 'en cours d\\'inscription'";
+        AND s.etat = 'en cours d\'inscription'";
 
             
     

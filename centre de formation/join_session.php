@@ -1,4 +1,4 @@
-<html lang="en">
+ <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -98,22 +98,22 @@ $num_session = COUNT($num_session_Data);
     elseif(checksession($num_session_Data,$_GET["id_session"]) ){
         
         echo '<div class="row latestsProductsdiv text-center">
-        <h1 class ="col-md-12" style="color : red;">You have already joined this session :(</h1>
+        <h1 class ="col-md-12" style="color : red;">You have already joined this session</h1>
         <a class="px-5 mt-5 btn btn-sm btn-outline-dark col-md-4" href="Formations.php" style = margin:auto>Back</a>
         </div>';
         // echo $ChauvechementCount;
 
     }elseif($num_session == 2){
         echo '<div class="row latestsProductsdiv text-center">
-        <h1 class ="col-md-12" style="color : red;">You have already joined 2 sessions :(</h1>
+        <h1 class ="col-md-12" style="color : red;">You have already joined 2 sessions this year</h1>
         <a class="px-5 mt-5 btn btn-sm btn-outline-dark col-md-4" href="Formations.php" style = margin:auto>Back</a>
         </div>';
         // echo $ChauvechementCount;
     }
     else{
         echo '<div class="row latestsProductsdiv text-center">
-        <h1 class ="col-md-12" style="color : red;">You can\'t join this session :(</h1>
-        <h3 class ="col-md-12" style="color : red;">There is another Session in this date</h3>
+        <h1 class ="col-md-12" style="color : red;">You can\'t join this session</h1>
+        <h3 class ="col-md-12" style="color : red;">There is another session in this date</h3>
         <a class="px-5 mt-5 btn btn-sm btn-outline-dark col-md-2" href="Formations.php" style = margin:auto>Back</a>
         </div>';
     }

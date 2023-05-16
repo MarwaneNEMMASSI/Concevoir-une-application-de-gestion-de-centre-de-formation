@@ -58,7 +58,7 @@
             font-weight: bold;
         }
         .duration{
-            color: #1fae51;
+            color: blue;
             font-weight: bold;
         }
 
@@ -224,7 +224,7 @@ else{
 
 $formations = "SELECT  * FROM session s 
                 INNER JOIN formation f ON f.id_formation = s.id_formation
-                WHERE s.etat = 'en cours d\\'inscription'
+                WHERE s.etat = 'en cours d\'inscription'
                 ORDER BY s.id_formation DESC LIMIT 6";
 
 
@@ -243,12 +243,12 @@ while($row = mysqli_fetch_assoc($result)) {
     <form method = "GET" action = "formation-details.php" class="card formationCards"  style=" background-color: white;">
     <div class="card-body">
         <h4 class="card-title">' .$row['sujet']. '</h4>
-        <p class="card-text"><strong>Categorie :</strong> <span class = "duration">'  .$row['categorie']. '</span></p>
-        <p class="card-text"><strong>Masse Horaire :</strong><span class = "duration"> '  .$row['masse_horaire']. 'h</span></p>
+        <p class="card-text"><strong>Category :</strong> <span class = "duration">'  .$row['categorie']. '</span></p>
+        <p class="card-text"><strong>Hourly mass :</strong><span class = "duration"> '  .$row['masse_horaire']. 'h</span></p>
         <p class="card-text">'  .$row['description']. '</p>
 
         <input type="hidden" name="id_formation" type = "submit" value ="'.$id_formation.'">
-        <input class="btn " type="submit" value = "More" style = "width : 50% ;background-color:#1fae51;color:white;margin-top:5%">
+        <input class="btn " type="submit" value = "More" style = "width : 50% ;background-color:blue;color:white;margin-top:5%">
 
     </div>
     
