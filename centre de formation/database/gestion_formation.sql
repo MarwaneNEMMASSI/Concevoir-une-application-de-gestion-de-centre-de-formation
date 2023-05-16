@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 08, 2023 at 12:07 AM
+-- Host: localhost
+-- Generation Time: May 16, 2023 at 08:00 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `gestion_formation`
 --
-CREATE DATABASE IF NOT EXISTS `gestion_formation` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `gestion_formation`;
 
 -- --------------------------------------------------------
 
@@ -29,7 +27,6 @@ USE `gestion_formation`;
 -- Table structure for table `apprenant`
 --
 
-DROP TABLE IF EXISTS `apprenant`;
 CREATE TABLE `apprenant` (
   `id_apprenant` int(50) NOT NULL,
   `firstname` varchar(50) DEFAULT NULL,
@@ -54,7 +51,6 @@ INSERT INTO `apprenant` (`id_apprenant`, `firstname`, `lastname`, `email`, `pass
 -- Table structure for table `formateur`
 --
 
-DROP TABLE IF EXISTS `formateur`;
 CREATE TABLE `formateur` (
   `id_formateur` int(50) NOT NULL,
   `firstname` varchar(50) DEFAULT NULL,
@@ -77,28 +73,28 @@ INSERT INTO `formateur` (`id_formateur`, `firstname`, `lastname`, `email`, `pass
 -- Table structure for table `formation`
 --
 
-DROP TABLE IF EXISTS `formation`;
 CREATE TABLE `formation` (
   `id_formation` int(50) NOT NULL,
   `sujet` varchar(50) DEFAULT NULL,
   `categorie` varchar(50) DEFAULT NULL,
   `masse_horaire` varchar(50) DEFAULT NULL,
-  `description` varchar(500) DEFAULT NULL
+  `description` varchar(500) DEFAULT NULL,
+  `Img` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `formation`
 --
 
-INSERT INTO `formation` (`id_formation`, `sujet`, `categorie`, `masse_horaire`, `description`) VALUES
-(1, 'Master Microsoft Word Beginner to Advanced', 'Informatique', '30', 'Master the most popular Word Processing tool, Microsoft Word. Microsoft Word 2010, Word 2013, Word 2016, Word 2019'),
-(2, 'Beginner\'s Guide to Game Development in Unity', 'Gaming Developement', '13', 'Learn how to create a multiplayer game using Unity, the C# programming language and Photon 2'),
-(4, 'Powerpoint 2019  - Master powerpoint presentation', 'Informatique', '9', 'Complete Powerpoint Masterclass, 20+ powerpoint 365 presentation slides. Learn Microsoft Powerpoint beginner to advanced'),
-(5, 'JS For Beginners', 'Developement', '30', 'Learn javascript online and supercharge your web design with this Javascript for beginners training course.'),
-(6, 'Kids Coding -  HTML, CSS and JavaSc', 'Developement', '10', 'Your kid could be the next Zuckerberg!'),
-(7, 'Database Design Introduction', 'Developement', '20', 'Prevent typical developer mistakes by learning how to properly create and normalize a relational database'),
-(8, 'Microsoft Excel from Beginner to Advanced', 'Informatique', '15', 'Excel with this A-Z Microsoft Excel Course. Microsoft Excel 2010, 2013, 2016, Excel 2019 and Microsoft/Office 365'),
-(9, 'The Ultimate Guide to Game Development with Unity', 'Gaming Developement', '40', 'Created in partnership with Unity Technologies: learn C# by developing 2D & 3D games with this comprehensive guide');
+INSERT INTO `formation` (`id_formation`, `sujet`, `categorie`, `masse_horaire`, `description`, `Img`) VALUES
+(1, 'Google Cybersecurity Professional Certificate', 'Cybersecurity', '200', 'This is your path to a career in cybersecurity. In this certificate program, you’ll learn in-demand skills that can have you job-ready in less than 6 months. No degree or experience required.\r\n', 'img/cyber.jpeg'),
+(2, 'IBM Cybersecurity Analyst Professional Certificate', 'Cybersecurity', '200', 'Get ready to launch your career in cybersecurity. Build job-ready skills for an in-demand role in the field, no degree or prior experience required.\r\n', 'img/cyberIBM.jpeg'),
+(4, 'Front-End Developer Professional Certificate', 'Front-End', '150', 'Launch your career as a front-end developer. Build job-ready skills for an in-demand career and earn a credential from Meta. No degree or prior experience required to get started.\r\n', 'img/front.png'),
+(5, 'Back-End Developer Professional Certificate', 'Back-end', '200', 'Launch your career as a back-end developer. Build job-ready skills for an in-demand career and earn a credential from Meta. No degree or prior experience required to get started.\r\n', 'img/back.jpeg'),
+(6, 'IBM Back-End Development Professional Certificate', 'Back-end', '200', 'Prepare for a career as a back-end developer.. Gain the in-demand skills and hands-on experience to get job-ready in less than 6 months.\r\n', 'img/backIBM.jpeg'),
+(7, 'Google Data Analytics Professional Certificate', 'Data Analytics', '70', 'This is your path to a career in data analytics. In this program, you’ll learn in-demand skills that will have you job-ready in less than 6 months. No degree or experience required.\r\n', 'img/dataanalytics.jpeg'),
+(8, 'Advanced Data Analytics Professional Certificate', 'Data analytics', '250', 'Learn in-demand skills like statistical analysis, Python, regression models, and machine learning in less than 6 months.\r\n', 'img/dataanalytics.jpeg'),
+(9, 'Database Engineer Professional Certificate', 'Database engineering', '200', 'Launch your career as a Database Engineer. Build job-ready skills for an in-demand career and earn a credential from Meta. No degree or experience required to get started.\r\n', 'img/database.png');
 
 -- --------------------------------------------------------
 
@@ -106,7 +102,6 @@ INSERT INTO `formation` (`id_formation`, `sujet`, `categorie`, `masse_horaire`, 
 -- Table structure for table `inscription`
 --
 
-DROP TABLE IF EXISTS `inscription`;
 CREATE TABLE `inscription` (
   `id_apprenant` int(50) NOT NULL,
   `id_session` int(50) NOT NULL,
@@ -130,7 +125,6 @@ INSERT INTO `inscription` (`id_apprenant`, `id_session`, `resultat`, `date_valid
 -- Table structure for table `session`
 --
 
-DROP TABLE IF EXISTS `session`;
 CREATE TABLE `session` (
   `id_session` int(50) NOT NULL,
   `date_debut` date DEFAULT NULL,
