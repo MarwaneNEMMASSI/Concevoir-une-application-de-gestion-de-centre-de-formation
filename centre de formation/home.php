@@ -222,7 +222,7 @@ else{
 <?php
 
 
-$formations = "SELECT  * FROM session s 
+$formations = "SELECT DISTINCT f.id_formation,sujet,categorie,masse_horaire,description  FROM session s 
                 INNER JOIN formation f ON f.id_formation = s.id_formation
                 WHERE s.etat = 'en cours d\'inscription'
                 ORDER BY s.id_formation DESC LIMIT 6";
