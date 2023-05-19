@@ -49,6 +49,7 @@ if(!empty($_SESSION["id_apprenant"])){
 
     $id_apprenant = $_SESSION['id_apprenant'];
     $id_session = $_GET['id_session'];
+    $id_formation = $_GET['id_formation'];
 
 
 $ChauvechementCount_All =  mysqli_query(
@@ -82,7 +83,21 @@ $num_session_Data = mysqli_fetch_all($sql_num_session);
 
 $num_session = COUNT($num_session_Data);
 
-    if( $num_session < 2 && !checksession($num_session_Data,$_GET["id_session"]) && $ChauvechementCount == 0 ){
+$sql_SameCourseCheck = mysqli_query($conn,
+    "SELECT COUNT(*) FROM inscription
+INNER JOIN session ON inscription.id_session = session.id_session
+INNER JOIN formation ON session.id_formation = formation.id_formation
+WHERE inscription.id_apprenant = $id_apprenant AND formation.id_formation = $id_formation"
+);
+
+$queryresult = mysqli_fetch_array($sql_SameCourseCheck);
+$SameCoursesCount = (int)$queryresult[0];
+
+
+
+
+
+    if( $num_session < 2 && !checksession($num_session_Data,$_GET["id_session"]) && $ChauvechementCount == 0 && $SameCoursesCount == 0){
 
         $checkres = mysqli_query($conn, "SELECT * FROM session WHERE id_session = '$id_session'");
 
@@ -109,6 +124,12 @@ $num_session = COUNT($num_session_Data);
         <a class="px-5 mt-5 btn btn-sm btn-outline-dark col-md-4" href="Formations.php" style = margin:auto>Back</a>
         </div>';
         // echo $ChauvechementCount;
+    }
+    elseif($SameCoursesCount != 0){
+        echo '<div class="row latestsProductsdiv text-center">
+        <h1 class ="col-md-12" style="color : red;">You are already enrolled in a session that concerns the same course</h1>
+        <a class="px-5 mt-5 btn btn-sm btn-outline-dark col-md-4" href="Formations.php" style = margin:auto>Back</a>
+        </div>';
     }
     else{
         echo '<div class="row latestsProductsdiv text-center">
